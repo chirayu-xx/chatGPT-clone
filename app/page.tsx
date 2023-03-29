@@ -1,11 +1,19 @@
 import React from 'react'
 import {BoltIcon, ExclamationTriangleIcon, SunIcon} from '@heroicons/react/24/outline'
+import {AiFillGithub} from 'react-icons/ai'
+import Link from 'next/link'
 
 function Home() {
   return (
-    <div className='text-white flex flex-col items-center justify-center min-h-screen px-2'>
-     <h1 className='text-5xl font-bold mb-20'>Ultimate ChatGPT Clone</h1>
-     <div className='flex space-x-2 text-center'>
+    <div className='text-white flex flex-col items-center justify-center min-h-screen flex-1 overflow-y-auto overflow-x-hidden'>
+     <h1 className='text-3xl  md:text-5xl font-bold m-3'>Ultimate ChatGPT Clone</h1>
+     <Link href={'https://github.com/chirayu-xx'} target='_blank' referrerPolicy='no-referrer'>
+     <div className='group flex flex-col items-center justify-center space-x-1 mb-20'>
+     <h1 className='text-3xl group-hover:text-gray-500 transition-all ease-out duration-200  md:text-5xl font-semibold'>By Chirayu</h1>
+        <AiFillGithub style={{fontSize:'50px'}} className='hidden  group-hover:block'/>
+     </div>
+     </Link>
+     <div className='flex md:flex-row flex-col space-x-2 text-center'>
         <div>
             <div className='flex flex-col items-center justify-center mb-5'>
                 <SunIcon className='h-8 w-8'/>

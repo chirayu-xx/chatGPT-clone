@@ -15,7 +15,7 @@ function SideBar() {
     session && query(collection(db, 'users', session.user?.email!, "chats"), orderBy('createdAt', 'asc'))
   )
   return (
-    <div className="p-2  flex flex-col min-h-screen
+    <div className="p-2 flex flex-col min-h-screen
     ">
         <div className="flex-1">
             <div>
@@ -41,9 +41,12 @@ function SideBar() {
               </div>
 
         </div>
+        <div className=" flex text-white group font-semibold flex-col items-center justify-center transition-all ease-out duration-200">
         {session && (
-          <img onClick={() => signOut()} src={session.user?.image!} className='h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50' alt='profile'/>
-        )}
+          <img onClick={() => signOut()} src={session.user?.image!} className='h-12 w-12 rounded-full  cursor-pointer mx-auto mb-2 hover:opacity-50' alt='profile'/>
+          )}
+          <p className="hidden group-hover:block">Logout</p>
+          </div>
     </div>
   )
 }
