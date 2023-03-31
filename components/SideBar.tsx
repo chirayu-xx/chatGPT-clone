@@ -6,7 +6,8 @@ import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
 import ModelSelection from "./ModelSelection";
-import { LoaderIcon } from "react-hot-toast";
+import { LoaderIcon, toast} from "react-hot-toast";
+import { useEffect } from "react";
 
 function SideBar() {
   const {data:session} = useSession();
@@ -14,6 +15,8 @@ function SideBar() {
   const [chats, loading, error] = useCollection(
     session && query(collection(db, 'users', session.user?.email!, "chats"), orderBy('createdAt', 'asc'))
   )
+
+  
   return (
     <div className="p-2 flex flex-col min-h-screen
     ">
@@ -42,10 +45,12 @@ function SideBar() {
 
         </div>
         <div className=" flex text-white group font-semibold flex-col items-center justify-center transition-all ease-out duration-200">
+         
         {session && (
           <img onClick={() => signOut()} src={session.user?.image!} className='h-12 w-12 rounded-full  cursor-pointer mx-auto mb-2 hover:opacity-50' alt='profile'/>
           )}
-          <p className="hidden group-hover:block">Logout</p>
+          <h1 className="block transition-all duration-200 text-lg font-semibold text-gray-300 group-hover:hidden">Hello! {session?.user?.name}</h1>
+          <p className="hidden transition-all duration-200 group-hover:block">Click to Logout</p>
           </div>
     </div>
   )
