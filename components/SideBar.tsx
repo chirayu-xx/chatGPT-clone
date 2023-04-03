@@ -7,7 +7,7 @@ import { db } from "../firebase";
 import ChatRow from "./ChatRow";
 import ModelSelection from "./ModelSelection";
 import { LoaderIcon, toast} from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function SideBar() {
   const {data:session} = useSession();
@@ -15,7 +15,12 @@ function SideBar() {
   const [chats, loading, error] = useCollection(
     session && query(collection(db, 'users', session.user?.email!, "chats"), orderBy('createdAt', 'asc'))
   )
-
+  const [disabled, setDisabled] = useState(true);
+  useEffect(() => {
+    if(session){
+      setDisabled(false);
+    }
+  },[session, disabled])
   
   return (
     <div className="p-2 flex flex-col min-h-screen
@@ -23,7 +28,8 @@ function SideBar() {
         <div className="flex-1">
             <div>
             {/* New Chat  */}
-            <NewChat/>
+            
+            <NewChat disabled = {disabled}/>
             <div className="hidden  sm:inline">
               <ModelSelection/>
             </div>

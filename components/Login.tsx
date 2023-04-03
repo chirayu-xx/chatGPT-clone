@@ -17,7 +17,7 @@ function Login() {
       <button  className='text-white font-bold text-lg '>Sign In with Google</button>
       <Image src={'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png'}width={28} height={20} alt='google'/>
       </div>
-      <div onClick={() => signIn('github',{callbackUrl:'http://localhost:3000'})} className='flex hover:bg-gray-700 border space-x-2 px-10 p-2 m-2 rounded-lg gap-2'> 
+      <div onClick={() => signIn('github')} className='flex hover:bg-gray-700 border space-x-2 px-10 p-2 m-2 rounded-lg gap-2'> 
       <button  className='text-white font-bold text-lg '>Sign In with Github</button>
       <AiFillGithub className='w-10 h-7'/>
       </div>

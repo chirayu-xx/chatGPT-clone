@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import GithubProvider from "next-auth/providers/github"
+import SpotifyProvider from "next-auth/providers/spotify"
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -10,10 +11,13 @@ export const authOptions = {
     }),
     GithubProvider({
       clientId:process.env.GITHUB_ID!,
-      clientSecret:process.env.GITHUB_SECRET!
-    })
-    
+      clientSecret:process.env.GITHUB_SECRET!,
+    }),
     // ...add more providers here
-  ],
+  ]
+  ,
+  pages:{
+    signIn : '/login'
+  }
 }
 export default NextAuth(authOptions)
