@@ -2,7 +2,7 @@
 import { collection, orderBy, query } from "firebase/firestore";
 import { useSession } from "next-auth/react"
 import { useCollection } from "react-firebase-hooks/firestore";
-import Message from "./Message";
+import Message from "./Message/Message";
 import { db } from "@/firebase";
 import { ArrowDownCircleIcon } from "@heroicons/react/24/outline";
 import { LoaderIcon } from "react-hot-toast";
