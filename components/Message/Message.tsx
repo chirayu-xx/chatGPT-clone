@@ -21,7 +21,7 @@ function Message({ message }: Props) {
   return (
     <motion.div 
     initial={{
-      y:200,
+      y:-200,
       opacity:0
   }}
   transition={{ type: "spring", stiffness: 100, delay:0.1, duration:1000 }}
