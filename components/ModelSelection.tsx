@@ -19,7 +19,7 @@ function ModelSelection() {
     isLoading= {isLoading}
     menuPosition='fixed'
     classNames={{
-        control:(state) => "bg-[#434654] border-[#434654]"
+        control:(state) => "bg-[#434654] rounded-full border-[#434654]"
     }}    
     placeholder={model}
     options={models?.modelOptions}

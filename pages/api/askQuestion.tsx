@@ -24,12 +24,12 @@ export default async function handler(
     const response = await query(prompt, chatId, model)
 
     const message : Message = {
-        text: response || "ChatGPT ws unable to find",
+        text: response || "ChatGPT was unable to find",
         createdAt: admin.firestore.Timestamp.now(),
         user: {
             _id:'ChatGPT',
             name:'ChatGPT',
-            avatar:"https://links.papareact.com/89k",
+            avatar:"https://github.com/chirayu-xx/Bro-AI/blob/main/client/assets/robot.png?raw=true",
         },
     }
     await adminDb

@@ -4,6 +4,7 @@ import NewChat from "./NewChat"
 import {useCollection} from 'react-firebase-hooks/firestore'
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
+import {motion} from 'framer-motion'
 import ChatRow from "./ChatRow";
 import ModelSelection from "./ModelSelection";
 import { LoaderIcon, toast} from "react-hot-toast";
@@ -21,9 +22,10 @@ function SideBar() {
       setDisabled(false);
     }
   },[session, disabled])
+  console.log(chats?.docs.length)
   
   return (
-    <div className="p-2 flex flex-col min-h-screen
+    <div className="p-2 flex flex-col scrollbar-none min-h-screen bg-[#212228] text-black
     ">
         <div className="flex-1">
             <div>
@@ -50,14 +52,25 @@ function SideBar() {
               </div>
 
         </div>
-        <div className=" flex text-white group font-semibold flex-col items-center justify-center transition-all ease-out duration-200">
+        <motion.div 
+        initial={{
+            y:-200,
+            opacity:0
+        }}
+        transition={{  duration:1 }}
+        animate={{
+          y:0,
+          opacity:1
+        }}
+        viewport={{once:true}}
+        className=" flex relative scrollbar scrollbar-none  text-white group font-semibold flex-col items-center justify-center transition-all ease-out duration-200">
          
         {session && (
           <img onClick={() => signOut()} src={session.user?.image!} className='h-12 w-12 rounded-full  cursor-pointer mx-auto mb-2 hover:opacity-50' alt='profile'/>
           )}
-          <h1 className="block transition-all duration-200 text-lg font-semibold text-gray-300 group-hover:hidden">Hello! {session?.user?.name}</h1>
-          <p className="hidden transition-all duration-200 group-hover:block">Click to Logout</p>
-          </div>
+          <h1 className="block bg-[#131416] rounded-full p-3 text-base transition-all duration-200 text-center font-semibold text-gray-300">Hello! {session?.user?.name}</h1>
+          <p className="opacity-0 absolute transition-all duration-500 text-sm group-hover:opacity-100 bg-[#131416] p-2 rounded-full rounded-bl-none top-[-15px] right-5">Click to Logout</p>
+          </motion.div>
     </div>
   )
 }

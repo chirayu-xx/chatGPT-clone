@@ -39,7 +39,7 @@ function Code({text} : Props) {
         }, 3000)
       }
   return (
-    <div className="bg-gray-600  grid place-items-center rounded-md">
+    <div className="bg-gray-600 mx-2 grid place-items-center rounded-md">
           <div className="max-w-xl rounded-md overflow-hidden">
             <div className="flex items-center text-sm font-semibold justify-between px-4 text-white">
               <p>Example Code</p>

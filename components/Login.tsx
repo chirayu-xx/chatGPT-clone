@@ -6,9 +6,9 @@ import { AiFillGithub } from 'react-icons/ai'
 
 function Login() {
   return (
-    <div className='bg-[#343541] h-screen flex flex-col items-center justify-center text-center'>
+    <div className='bg-[#131416] h-screen flex flex-col items-center justify-center text-center'>
       <Image
-      src='https://links.papareact.com/2i6'
+      src='https://github.com/chirayu-xx/Bro-AI/blob/main/client/assets/robot.png?raw=true'
       width={300}
       height={300}
       alt='logo'

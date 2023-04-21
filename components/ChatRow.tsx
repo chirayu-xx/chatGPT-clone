@@ -2,6 +2,7 @@ import { db } from "@/firebase";
 import { ChatBubbleLeftIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { collection, deleteDoc, doc } from "firebase/firestore";
 import { useSession } from "next-auth/react";
+import {motion} from 'framer-motion'
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -31,12 +32,22 @@ function ChatRow({id}: Props) {
     }
 
   return (
-    <Link className={`chatRow justify-center ${active && 'bg-gray-700/50'}`} href={`chat/${id}`}>
-        <ChatBubbleLeftIcon className="h-5 w-5"/>
-        <p className="flex-1 hidden md:inline-flex truncate">
+    <Link  href={`chat/${id}`}>
+        <motion.div 
+        initial={{
+            y:200,
+            opacity:0
+        }}
+        transition={{ type: "spring", stiffness: 100, delay:0.3, duration:1000 }}
+        whileInView={{opacity:1, y:0}}
+        viewport={{once:true}}
+        className={`chatRow w-full rounded-full justify-center ${active && 'bg-[#131416]'}`}>
+        <ChatBubbleLeftIcon className="h-5 w-5 text-white"/>
+        <p className="flex-1 hidden md:inline-flex truncate text-white text-base">
             {messages?.docs[messages?.docs.length-1]?.data().text || "New Chat"}
         </p>
-        <TrashIcon onClick={removeChat} className="h-5 2-5 text-gray-700 hover:text-red-700"/>
+        <TrashIcon onClick={removeChat} className="h-5 2-5 text-white hover:text-red-700"/>
+        </motion.div>
     </Link>
   )
 }

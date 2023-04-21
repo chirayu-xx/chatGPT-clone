@@ -26,7 +26,7 @@ function Chat({chatId}: Props) {
       orderBy('createdAt', 'asc')
     ));
   return (
-    <div className="flex-1 overflow-y-auto overflow-x-hidden">
+    <div className="flex-1 m-1 overflow-y-auto overflow-x-hidden scrollbar-thumb-[#282932] scrollbar-track-slate-500 scrollbar-thin bg-opacity-10">
       {
               loading && (
                 <div className="flex justify-center items-center space-x-3 animate-pulse text-center text-white">

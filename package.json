@@ -17,6 +17,7 @@
     "eslint-config-next": "13.2.4",
     "firebase": "^9.18.0",
     "firebase-admin": "^11.5.0",
+    "framer-motion": "^10.12.4",
     "next": "13.2.4",
     "next-auth": "^4.20.1",
     "openai": "^3.2.1",
@@ -30,6 +31,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "react-typewriter-effect": "^1.1.0",
     "swr": "^2.1.1",
+    "tailwind-scrollbar": "^3.0.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {

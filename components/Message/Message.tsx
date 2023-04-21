@@ -1,5 +1,5 @@
 import { DocumentData } from "firebase/firestore";
-
+import {motion} from 'framer-motion'
 import { useState } from "react";
 import Code from "./Code";
 
@@ -19,16 +19,24 @@ function Message({ message }: Props) {
   }
 
   return (
-    <div className={`py-5 text-white ${isChatGPT && "bg-[#434654]"}`}>
-      <div className="flex space-x-5 px-3 lg:px-10 max-w-2xl mx-auto">
-        <img src={message.user.avatar} className="h-8 w-8" alt="" />
+    <motion.div 
+    initial={{
+      y:200,
+      opacity:0
+  }}
+  transition={{ type: "spring", stiffness: 100, delay:0.1, duration:1000 }}
+  whileInView={{opacity:1, y:0}}
+  viewport={{once:true}}
+    className={`w-full my-5 flex  ${isChatGPT ? 'justify-start' : 'justify-end'} text-black"}`}>
+      <div className={`flex max-w-lg items-end `}>
+        <img src={message.user.avatar} className="lg:h-10 lg:w-10 h-8 w-8 rounded-full" alt="" />
         {isCode(message.text) ? (
          <Code text= {message.text}/> 
         ) : (
-          <p className="pt-1 text-sm">{message.text}</p>
+          <p className={`text-base p-5 mx-2 rounded-3xl ${isChatGPT ? 'bg-[#ECEDED] rounded-bl-none':'bg-[#569FFA] text-white rounded-br-none'}`}>{message.text}</p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
