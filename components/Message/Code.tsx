@@ -55,7 +55,6 @@ function Code({text} : Props) {
             language="javascript"
             style={atomOneDark}
             wrapLongLines={true}
-            showLineNumbers= {true}
           >
             {formattedCode}
           </SyntaxHighlighter>
