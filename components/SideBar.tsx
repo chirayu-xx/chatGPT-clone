@@ -22,8 +22,6 @@ function SideBar() {
       setDisabled(false);
     }
   },[session, disabled])
-  console.log(chats?.docs.length)
-  
   return (
     <div className="p-2 flex flex-col scrollbar-none min-h-screen bg-[#212228] text-black
     ">

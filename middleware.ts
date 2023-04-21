@@ -5,6 +5,7 @@ import { NextResponse } from "next/server"
 export default withAuth(
   async function middleware(req) {
     const token = await getToken({ req })
+    console.log(token)
     const isAuth = !!token
     const isAuthPage =
       req.nextUrl.pathname.startsWith("/login")
@@ -24,7 +25,7 @@ export default withAuth(
       }
 
       return NextResponse.redirect(
-        new URL(`/login`, req.url)
+        new URL(`/login?from=${encodeURIComponent(from)}`, req.url)
       );
     }
   },
@@ -41,6 +42,6 @@ export default withAuth(
 )
 
 export const config = {
-  matcher: ["/chat/:id*", "/", "/login"],
+  matcher: ["/chat/:id*", "/"],
 
 }
