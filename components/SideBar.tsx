@@ -22,6 +22,7 @@ function SideBar() {
       setDisabled(false);
     }
   },[session, disabled])
+
   return (
     <div className="p-2 flex flex-col scrollbar-none min-h-screen bg-[#212228] text-black
     ">
@@ -66,7 +67,7 @@ function SideBar() {
         {session && (
           <img onClick={() => signOut()} src={session.user?.image!} className='h-12 w-12 rounded-full  cursor-pointer mx-auto mb-2 hover:opacity-50' alt='profile'/>
           )}
-          <h1 className="block bg-[#131416] rounded-full p-3 text-base transition-all duration-200 text-center font-semibold text-gray-300">Hello! {session?.user?.name}</h1>
+          <h1 className="block bg-[#131416] rounded-full p-3 text-xs md:text-base transition-all duration-200 text-center font-semibold text-gray-300">Hello! {session?.user?.name}</h1>
           <p className="opacity-0 absolute transition-all duration-500 text-sm group-hover:opacity-100 bg-[#131416] p-2 rounded-full rounded-bl-none top-[-15px] right-5">Click to Logout</p>
           </motion.div>
     </div>

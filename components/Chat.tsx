@@ -41,7 +41,7 @@ type Props = {
     }, [messages]);
   
     return (
-      <div className="flex-1 m-1 overflow-y-auto overflow-x-hidden scrollbar-thumb-[#282932] scrollbar-track-slate-500 scrollbar-thin bg-opacity-10">
+      <div className="flex-1 m-1 overflow-y-scroll overflow-x-hidden scrollbar-thumb-[#282932] scrollbar-track-slate-500 scrollbar-thin bg-opacity-10">
         {
           loading && (
             <div className="flex justify-center items-center space-x-3 animate-pulse text-center text-white">
@@ -58,11 +58,14 @@ type Props = {
             </>
           )
         }
+        <div className="mt-20">
+
         {
           messages?.docs.map((message) => (
             <Message key={message.id} message={message.data()} />
-          ))
-        }
+            ))
+          }
+         </div>
         <div ref={messagesEndRef} />
       </div>
     )

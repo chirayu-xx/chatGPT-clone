@@ -23,8 +23,8 @@ function NewChat({disabled} : Props) {
   }
   return (
     <div onClick={createNewChat} className={`border-gray-700 rounded-full border chatRow ${disabled && 'cursor-not-allowed'}`}>
-        <PlusIcon className="h-4 w-4"/>
-      <p>New Chat</p>
+        <PlusIcon className="hidden md:block h-4 w-4"/>
+      <p className="text-xs m-0 md:text-base">New Chat</p>
     </div>
   )
 }
