@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useSession } from "next-auth/react"
 import { useCollection } from "react-firebase-hooks/firestore";
 import Message from "./Message/Message";
+import { motion } from "framer-motion";
 import { db } from "@/firebase";
 import { ArrowDownCircleIcon } from "@heroicons/react/24/outline";
 import { LoaderIcon } from "react-hot-toast";
@@ -62,7 +63,7 @@ type Props = {
 
         {
           messages?.docs.map((message) => (
-            <Message key={message.id} message={message.data()} />
+              <Message key={message.id}  message={message.data()} />
             ))
           }
          </div>

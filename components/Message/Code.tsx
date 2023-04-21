@@ -39,9 +39,9 @@ function Code({text} : Props) {
         }, 3000)
       }
   return (
-    <div className="bg-gray-600 mx-2 grid place-items-center rounded-md">
-          <div className="max-w-xl rounded-md overflow-hidden">
-            <div className="flex items-center text-sm font-semibold justify-between px-4 text-white">
+    <div className=" mx-  2 grid place-items-center rounded-md">
+          <div className="max-w-xl  rounded-md overflow-hidden ">
+            <div className="flex items-center bg-gray-600 p-2 rounded-t-md text-sm font-semibold justify-between text-white">
               <p>Example Code</p>
               {copy?(<button className="py-1 inline-flex items-center gap-1">
                 <HiClipboardCheck/>
@@ -51,13 +51,15 @@ function Code({text} : Props) {
                 <span>Copy</span>
               </button>)}
             </div>
+            <div className="text-xs p-[-2px] max-w-xl">
           <SyntaxHighlighter
             language="javascript"
             style={atomOneDark}
             wrapLongLines={true}
-          >
+            >
             {formattedCode}
           </SyntaxHighlighter>
+            </div>
             </div>
         </div>
   )

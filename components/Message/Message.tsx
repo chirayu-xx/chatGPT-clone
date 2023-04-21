@@ -8,8 +8,6 @@ type Props = {
 };
 
 function Message({ message }: Props) {
-  console.log(message);
-
   const isChatGPT = message.user.name === "ChatGPT";
   function isCode(str: string) {
     const codeRegex = /\{[\s\S]*\}/;
@@ -25,19 +23,22 @@ function Message({ message }: Props) {
   }
 
   return (
-    <motion.div
-      initial={{
-        y: -200,
-        opacity: 0,
-      }}
-      transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className={`w-full flex  ${
+    <div
+      className={`w-full flex my-4 ${
         isChatGPT ? "justify-start" : "justify-end"
       } text-black"}`}
     >
-      <div className={`flex max-w-lg items-end `}>
+      <motion.div 
+      initial={{ opacity: 0,
+      y:-100 }}
+      whileInView={{ opacity: 1,
+      y:0 }}
+      viewport={{ once: true }}
+      transition={{
+        delay:0.5,
+        duration:0.3
+      }}
+      className={`flex max-w-lg items-end `}>
         <img
           src={message.user.avatar}
           className="lg:h-10 lg:w-10 h-8 w-8 rounded-full"
@@ -56,8 +57,8 @@ function Message({ message }: Props) {
             {message.text}
           </p>
         )}
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
 
