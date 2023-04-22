@@ -18,6 +18,11 @@ export const authOptions = {
   ,
   pages:{
     signIn : '/login'
+  },
+  callbacks:{
+    redirect(){
+      return '/'
+    }
   }
 }
 export default NextAuth(authOptions)
