@@ -13,8 +13,11 @@ import { useEffect, useState } from "react";
 function SideBar() {
   const {data:session} = useSession();
 
+  // const [chats, loading, error] = useCollection(
+  //   session && query(collection(db, 'users', session.user?.email!, "chats"), orderBy('createdAt', 'asc'))
+  // )
   const [chats, loading, error] = useCollection(
-    session && query(collection(db, 'users', session.user?.email!, "chats"), orderBy('createdAt', 'asc'))
+    session && query(collection(db,'users', session.user?.email!, "chats"), orderBy('createdAt', 'asc'))
   )
   const [disabled, setDisabled] = useState(true);
   useEffect(() => {
@@ -22,6 +25,7 @@ function SideBar() {
       setDisabled(false);
     }
   },[session, disabled])
+  console.log(chats)
 
   return (
     <div className="p-2 flex flex-col scrollbar-none min-h-screen bg-[#212228] text-black

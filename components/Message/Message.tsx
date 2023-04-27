@@ -12,10 +12,12 @@ function Message({ message }: Props) {
   function isCode(str: string) {
     const codeRegex = /\{[\s\S]*\}/;
     const pythonRegex = /^( {4}|\t).*:\n([\s\S]*\n)*?(?=^( {4}|\t)|$)/m;
+    const htmlRegex = /<("[^"]*"|'[^']*'|[^'">])*>/;
 
     return (
       codeRegex.test(str) ||
       pythonRegex.test(str) ||
+      htmlRegex.test(str) ||
       /^[\s\S]*\bdef\b[\s\S]*$|^( {4}|\t).*:\n([\s\S]*\n)*?(?=^( {4}|\t)|$)/m.test(
         str
       )
